@@ -1,59 +1,210 @@
 /* static/style.css */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1, h2 {
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    background-color: #f5f5f5; /* Notion's light gray */
     color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
 }
 
-form {
-    margin: 20px 0;
+.app-container {
+    display: flex;
+    flex: 1; /* Expand to fill available space */
 }
 
-input[type="file"] {
-    margin-right: 10px;
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    padding: 20px;
+    height: 100vh; /* Full height */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.sidebar-header h2 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.summary, .quiz {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-a {
-    display: inline-block;
-    margin-top: 20px;
-    color: #007bff;
+.sidebar-nav a {
+    display: block;
+    padding: 10px;
+    color: #333;
     text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 4px;
 }
 
-a:hover {
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.search input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search input:disabled {
+    background-color: #f5f5f5;
+    opacity: 0.7;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px; /* Offset for sidebar */
+    padding: 20px;
+    flex: 1;
+}
+
+.content-header {
+    margin-bottom: 30px;
+}
+
+.content-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.content-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #2eaadc; /* Notion's blue */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #268bb5;
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+.upload-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-form input[type="file"] {
+    font-size: 14px;
+}
+
+/* Classes and Lectures */
+.classes, .lectures, .recent, .results {
+    margin-bottom: 40px;
+}
+
+.classes h2, .lectures h2, .recent h2, .results h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.class-list, .lecture-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.class-item, .lecture-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+.class-item:hover, .lecture-item:hover {
+    background-color: #f9f9f9;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.class-details h3, .lecture-details h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.class-details p, .lecture-details p {
+    font-size: 14px;
+    color: #666;
+}
+
+.class-details a, .lecture-details a {
+    color: #2eaadc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.class-details a:hover, .lecture-details a:hover {
     text-decoration: underline;
+}
+
+/* Results Page */
+.content-box {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: auto; /* Stick to bottom */
 }

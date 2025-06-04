@@ -1,19 +1,103 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeetingMate - Upload Lecture</title>
+    <title>MeetingMate - My Workspace</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>MeetingMate</h1>
-        <p>Upload a lecture audio file to get a transcript, summary, and quiz questions.</p>
-        <form action="{{ url_for('generate')}}" method="post" enctype="multipart/form-data">
-            <input type="file" name="audio" accept="audio/*">
-            <button type="submit">Process Lecture</button>
-        </form>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MeetingMate</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{{ url_for('index') }}" class="active">🏠 Home</a>
+                <a href="#">📚 My Classes</a>
+                <a href="#">👤 Profile</a>
+                <div class="search">
+                    <input type="text" placeholder="Search classes..." disabled>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>My Workspace</h1>
+                <div class="actions">
+                    <a href="#create-class" class="btn btn-primary">+ New Class</a>
+                    <form action="{{ url_for('generate') }}" method="post" enctype="multipart/form-data" class="upload-form">
+                        <input type="file" name="audio" accept="audio/*" required>
+                        <button type="submit" class="btn btn-secondary">Upload Lecture</button>
+                    </form>
+                </div>
+            </header>
+
+            <!-- Classes Section -->
+            <section class="classes">
+                <h2>My Classes</h2>
+                <div class="class-list">
+                    <!-- Mocked Class Items -->
+                    <div class="class-item">
+                        <span class="icon">📖</span>
+                        <div class="class-details">
+                            <h3>Biology 101</h3>
+                            <p>Introduction to cellular biology and genetics.</p>
+                            <a href="{{ url_for('class_view', class_id=1) }}">View Lectures</a>
+                        </div>
+                    </div>
+                    <div class="class-item">
+                        <span class="icon">📜</span>
+                        <div class="class-details">
+                            <h3>History 201</h3>
+                            <p>Modern world history from 1500 to present.</p>
+                            <a href="{{ url_for('class_view', class_id=2) }}">View Lectures</a>
+                        </div>
+                    </div>
+                    <div class="class-item">
+                        <span class="icon">⚙️</span>
+                        <div class="class-details">
+                            <h3>Physics 301</h3>
+                            <p>Advanced mechanics and thermodynamics.</p>
+                            <a href="{{ url_for('class_view', class_id=3) }}">View Lectures</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Lectures Section -->
+            <section class="recent">
+                <h2>Recent Lectures</h2>
+                <div class="lecture-list">
+                    <!-- Mocked Lecture Items -->
+                    <div class="lecture-item">
+                        <span class="icon">🎙️</span>
+                        <div class="lecture-details">
+                            <h3>Lecture 1: Cell Structure</h3>
+                            <p>Biology 101 • June 1, 2025</p>
+                            <a href="{{ url_for('results') }}">View Details</a>
+                        </div>
+                    </div>
+                    <div class="lecture-item">
+                        <span class="icon">🎙️</span>
+                        <div class="lecture-details">
+                            <h3>Lecture 2: DNA Replication</h3>
+                            <p>Biology 101 • June 2, 2025</p>
+                            <a href="{{ url_for('results') }}">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 MeetingMate. All rights reserved.</p>
+    </footer>
 </body>
 </html>

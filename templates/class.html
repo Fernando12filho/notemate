@@ -1,0 +1,71 @@
+<<!-- templates/class.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetingMate - Biology 101</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MeetingMate</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{{ url_for('index') }}">🏠 Home</a>
+                <a href="#" class="active">📚 My Classes</a>
+                <a href="#">👤 Profile</a>
+                <div class="search">
+                    <input type="text" placeholder="Search classes..." disabled>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Biology 101</h1>
+                <p>Introduction to cellular biology and genetics.</p>
+                <div class="actions">
+                    <form action="{{ url_for('results') }}" method="post" enctype="multipart/form-data" class="upload-form">
+                        <input type="file" name="audio" accept="audio/*" required>
+                        <button type="submit" class="btn btn-primary">+ Add Lecture</button>
+                    </form>
+                </div>
+            </header>
+
+            <!-- Lectures Section -->
+            <section class="lectures">
+                <h2>Lectures</h2>
+                <div class="lecture-list">
+                    <!-- Mocked Lecture Items -->
+                    <div class="lecture-item">
+                        <span class="icon">🎙️</span>
+                        <div class="lecture-details">
+                            <h3>Lecture 1: Cell Structure</h3>
+                            <p>Uploaded on June 1, 2025</p>
+                            <a href="{{ url_for('results') }}">View Details</a>
+                        </div>
+                    </div>
+                    <div class="lecture-item">
+                        <span class="icon">🎙️</span>
+                        <div class="lecture-details">
+                            <h3>Lecture 2: DNA Replication</h3>
+                            <p>Uploaded on June 2, 2025</p>
+                            <a href="{{ url_for('results') }}">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 MeetingMate. All rights reserved.</p>
+    </footer>
+</body>
+</html>
