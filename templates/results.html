@@ -1,0 +1,26 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetingMate - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>MeetingMate Results</h1>
+        
+        <h2>Transcript</h2>
+        <p>{{ transcript | safe }}</p>
+        
+        <h2>Summary</h2>
+        <div class="summary">{{ summary | safe }}</div>
+        
+        <h2>Quiz Questions</h2>
+        <div class="quiz">{{ quiz | safe }}</div>
+        
+        <a href="{{ url_for('index') }}">Upload Another Lecture</a>
+    </div>
+</body>
+</html>

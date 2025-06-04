@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetingMate - Upload Lecture</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>MeetingMate</h1>
+        <p>Upload a lecture audio file to get a transcript, summary, and quiz questions.</p>
+        <form action="{{ url_for('generate')}}" method="post" enctype="multipart/form-data">
+            <input type="file" name="audio" accept="audio/*">
+            <button type="submit">Process Lecture</button>
+        </form>
+    </div>
+</body>
+</html>
